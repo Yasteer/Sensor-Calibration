@@ -3,7 +3,8 @@
   <GVL Name="GVL_Analogue_Transducer_Instruments" Id="{ec551ed5-4a46-4b3b-8cfb-d86cdabacf0e}">
     <Declaration><![CDATA[//{attribute 'qualified_only'}
 VAR_GLOBAL
-	Temperature_Transducer_A1	:	Temperature_Transducer;
+	Temperature_Transducer_A1				:	Temperature_Transducer;
+	Temperature_Transducer_A1_Calibration	:	Sensor_Calibration_Multipoint;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

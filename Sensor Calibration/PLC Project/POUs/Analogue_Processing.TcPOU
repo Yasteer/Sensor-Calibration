@@ -6,10 +6,11 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Temperature_Transducer_A1(RawValue	:=	Temperature_Transducer_A1_Raw_Value);]]></ST>
+      <ST><![CDATA[Temperature_Transducer_A1(RawValue	:=	Temperature_Transducer_A1_Raw_Value);
+Temperature_Transducer_A1_Calibration(Sensor_Input_Value := Temperature_Transducer_A1.Temperature_SI);]]></ST>
     </Implementation>
     <LineIds Name="Analogue_Processing">
-      <LineId Id="5" Count="0" />
+      <LineId Id="5" Count="1" />
     </LineIds>
   </POU>
 </TcPlcObject>

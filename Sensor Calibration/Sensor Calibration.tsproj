@@ -28,13 +28,14 @@
 		</System>
 		<Plc>
 			<Project GUID="{24FC24CD-6277-4CE1-80AB-F822233285B5}" Name="PLC Project" PrjFilePath="PLC Project\PLC Project.plcproj" TmcFilePath="PLC Project\PLC Project.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{81F64521-BB78-329D-5D01-11017DF5005D}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{9A7AE531-1819-61A3-F0C8-315C8B5BE52C}">
 					<Name>PLC Project Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
 							<Name>GVL_Analogue_Transducer_Instruments_IO_Addresses.Temperature_Transducer_A1_Raw_Value</Name>
+							<Comment><![CDATA[	Mapped To Term 2(EL3202-0020) Channel 1 Value]]></Comment>
 							<Type>INT</Type>
 						</Var>
 					</Vars>

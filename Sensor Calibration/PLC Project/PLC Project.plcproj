@@ -18,6 +18,9 @@
     <LibraryReferences>{1b93971b-259d-492e-81ed-7c33d79fda9b}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GlobalTextList.TcGTLO">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\GVL_Analogue_Transducer_Instruments.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
@@ -32,7 +35,7 @@
     <Compile Include="POUs\Analogue_Processing.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Function Blocks\Sensor_Calibration.TcPOU">
+    <Compile Include="POUs\Function Blocks\Sensor_Calibration_Multipoint.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Function Blocks\Temperature_Transducer.TcPOU">
@@ -43,6 +46,10 @@
     </Compile>
     <Compile Include="VISUs\VisualizationManager.TcVMO">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VISUs\Visualization_Calibration_Screen.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +113,10 @@
     <PlaceholderReference Include="Tc3_Module">
       <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_Module</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="VisuDialogs">
+      <DefaultResolution>VisuDialogs, * (System)</DefaultResolution>
+      <Namespace>VisuDialogs</Namespace>
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>

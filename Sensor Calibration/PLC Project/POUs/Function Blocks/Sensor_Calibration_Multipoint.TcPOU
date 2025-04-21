@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="Sensor_Calibration_Multipoint" Id="{a4d271ee-c364-4ccd-ad3c-bf20bb5598cc}" SpecialFunc="None">
+    <Declaration><![CDATA[//	This Function Block Performs A Linear Interpolation 
+//	It Uses Multiple Data Points On Which A Line Graph Can Be Plotted
+//	Between Each Two Data Points, A Line Equation Exists
+//	The Linear Interpolation Formula Can Then Be Used To Find A Sensor Output Value 
+
+FUNCTION_BLOCK Sensor_Calibration_Multipoint
+VAR_INPUT
+	Sensor_Input_Value		:		REAL	:=	0.0;
+	
+	Start_Calibration		:		BOOL	:=	FALSE;
+	Reset_Calibration		:		BOOL	:=	FALSE;
+END_VAR
+VAR_OUTPUT
+	Calibrated_Output_Value	:		REAL	:=	0.0;
+END_VAR
+VAR	
+	// Lookup Table
+	Sensor_Points			:		ARRAY[1..Calibration_Points] OF REAL	:=	[0.00, 25.00, 50.00, 75.00, 100.0];		//	Sensor Input - Will Be supplied From Analogue Scaling Block
+	Reference_Points		:		ARRAY[1..Calibration_Points] OF REAL	:=	[0.00, 30.55, 58.16, 69.09, 100.0];		//	Actual Value
+	
+	Calibration_Index		: 		UINT;
+	
+	//	Linear Line Equation Variables
+	X1						:		REAL	:=	0.0;
+	X2						:		REAL	:=	0.0;
+	Y1						:		REAL	:=	0.0;
+	Y2						:		REAL	:=	0.0;	
+END_VAR
+VAR CONSTANT
+	Calibration_Points		:		UINT	:=	5;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[FOR Calibration_Index := 1 TO Calibration_Points DO
+	//	Determine Between Which Two Data Points The Sensors Value Lies
+	IF(Sensor_Input_Value >= Sensor_Points[Calibration_Index] AND Sensor_Input_Value <= Sensor_Points[Calibration_Index + 1])THEN 
+		//	Determine Parameters x1, x2, y1 & y2 For Straight Line Equation
+		X1	:=	Sensor_Points[Calibration_Index];
+		Y1	:=	Reference_Points[Calibration_Index];
+		
+		X2	:=	Sensor_Points[Calibration_Index + 1];
+		Y2	:=	Reference_Points[Calibration_Index + 1];
+		
+		Calibrated_Output_Value	:= Y1 + (Sensor_Input_Value - X1)*(Y2 - Y1)/(X2 - X1);
+		EXIT;
+	END_IF;
+END_FOR;
+
+//	Boundary Checks
+IF(Sensor_Input_Value < Sensor_Points[1])THEN
+	Calibrated_Output_Value	:=	Reference_Points[1];
+END_IF;
+
+IF(Sensor_Input_Value > Sensor_Points[Calibration_Points])THEN
+	Calibrated_Output_Value	:=	Reference_Points[Calibration_Points];
+END_IF;
+]]></ST>
+    </Implementation>
+    <LineIds Name="Sensor_Calibration_Multipoint">
+      <LineId Id="9" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="63" Count="3" />
+      <LineId Id="68" Count="1" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="76" Count="5" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="72" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
