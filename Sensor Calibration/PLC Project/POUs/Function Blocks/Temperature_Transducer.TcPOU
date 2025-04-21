@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="Temperature_Transducer" Id="{a55371ea-bc2e-480d-8efe-92c265429ebd}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Temperature_Transducer
+VAR_INPUT
+	RawValue			:	INT			:=	0;
+	InstrumentEnable	:	BOOL		:=	TRUE;
+END_VAR
+VAR_OUTPUT
+	Temperature_SI		:	REAL		:=	0.0;			//	°C
+END_VAR
+VAR
+	Low_Alarm			:	BOOL		:=	FALSE;
+	High_Alarm			:	BOOL		:=	FALSE;
+	
+	Low_Alarm_Setpoint	:	REAL		:=	0.000;			//	°C
+	High_Alarm_Setpoint	:	REAL		:=	100.0;			//	°C
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF(InstrumentEnable)THEN
+	Temperature_SI		:=	INT_TO_REAL(RawValue)/ 100.0;	//	Assumes That An EL3202 16-Bit RTD IO Card Is Used To Read The PT100 Instrument
+
+	//	Alarm Functionality: Rising Edge Required For Event System To Trigger An Alarm Event
+	IF(Temperature_SI < Low_Alarm_Setpoint)THEN
+		Low_Alarm		:=	TRUE;
+	ELSE
+		Low_Alarm		:=	FALSE;
+	END_IF;
+
+	IF(Temperature_SI > High_Alarm_Setpoint)THEN
+		Low_Alarm		:=	TRUE;
+	ELSE
+		Low_Alarm		:=	FALSE;
+	END_IF;
+ELSE
+	Temperature_SI		:=	0.0;
+END_IF;]]></ST>
+    </Implementation>
+    <LineIds Name="Temperature_Transducer">
+      <LineId Id="9" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="31" Count="3" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="35" Count="4" />
+      <LineId Id="42" Count="1" />
+      <LineId Id="17" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
