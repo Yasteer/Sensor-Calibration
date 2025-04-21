@@ -32,6 +32,9 @@
     <Compile Include="POUs\Analogue_Processing.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Function Blocks\Sensor_Calibration.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Function Blocks\Temperature_Transducer.TcPOU">
       <SubType>Code</SubType>
     </Compile>
