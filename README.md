@@ -40,7 +40,7 @@ This TwinCAT 3.1 project includes:
 
 Here is a screengrab of the system in action:
 
-![Calibration Demo](Demo.PNG)
+![Calibration Demo](DemoScreens/Demo.PNG)
 
 ---
 
