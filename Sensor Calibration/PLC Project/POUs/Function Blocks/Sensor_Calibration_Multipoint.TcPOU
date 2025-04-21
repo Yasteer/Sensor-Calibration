@@ -33,20 +33,22 @@ VAR CONSTANT
 	Calibration_Points		:		UINT	:=	5;
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[FOR Calibration_Index := 1 TO Calibration_Points DO
-	//	Determine Between Which Two Data Points The Sensors Value Lies
-	IF(Sensor_Input_Value >= Sensor_Points[Calibration_Index] AND Sensor_Input_Value <= Sensor_Points[Calibration_Index + 1])THEN 
-		//	Determine Parameters x1, x2, y1 & y2 For Straight Line Equation
-		X1	:=	Sensor_Points[Calibration_Index];
-		Y1	:=	Reference_Points[Calibration_Index];
+      <ST><![CDATA[IF(Start_Calibration)THEN
+	FOR Calibration_Index := 1 TO Calibration_Points DO
+		//	Determine Between Which Two Data Points The Sensors Value Lies
+		IF(Sensor_Input_Value >= Sensor_Points[Calibration_Index] AND Sensor_Input_Value <= Sensor_Points[Calibration_Index + 1])THEN 
+			//	Determine Parameters x1, x2, y1 & y2 For Straight Line Equation
+			X1	:=	Sensor_Points[Calibration_Index];
+			Y1	:=	Reference_Points[Calibration_Index];
 		
-		X2	:=	Sensor_Points[Calibration_Index + 1];
-		Y2	:=	Reference_Points[Calibration_Index + 1];
+			X2	:=	Sensor_Points[Calibration_Index + 1];
+			Y2	:=	Reference_Points[Calibration_Index + 1];
 		
-		Calibrated_Output_Value	:= Y1 + (Sensor_Input_Value - X1)*(Y2 - Y1)/(X2 - X1);
-		EXIT;
-	END_IF;
-END_FOR;
+			Calibrated_Output_Value	:= Y1 + (Sensor_Input_Value - X1)*(Y2 - Y1)/(X2 - X1);
+			EXIT;
+		END_IF;
+	END_FOR;
+END_IF;
 
 //	Boundary Checks
 IF(Sensor_Input_Value < Sensor_Points[1])THEN
@@ -56,9 +58,13 @@ END_IF;
 IF(Sensor_Input_Value > Sensor_Points[Calibration_Points])THEN
 	Calibrated_Output_Value	:=	Reference_Points[Calibration_Points];
 END_IF;
-]]></ST>
+
+IF(Reset_Calibration)THEN
+	Calibrated_Output_Value		:=	Sensor_Input_Value;
+END_IF;]]></ST>
     </Implementation>
     <LineIds Name="Sensor_Calibration_Multipoint">
+      <LineId Id="82" Count="0" />
       <LineId Id="9" Count="0" />
       <LineId Id="48" Count="0" />
       <LineId Id="41" Count="0" />
@@ -70,10 +76,13 @@ END_IF;
       <LineId Id="70" Count="0" />
       <LineId Id="42" Count="0" />
       <LineId Id="75" Count="0" />
+      <LineId Id="83" Count="0" />
       <LineId Id="74" Count="0" />
       <LineId Id="76" Count="5" />
       <LineId Id="73" Count="0" />
+      <LineId Id="84" Count="0" />
       <LineId Id="72" Count="0" />
+      <LineId Id="85" Count="1" />
     </LineIds>
   </POU>
 </TcPlcObject>
