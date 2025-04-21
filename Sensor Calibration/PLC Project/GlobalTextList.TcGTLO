@@ -36,8 +36,48 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"569"</v>
+              <v n="TextDefault">"0.0		25.0		50.0		75.0		100.0"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"440"</v>
+              <v n="TextDefault">"0.0	25.0	50.0	75.0	100.0"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"472"</v>
+              <v n="TextDefault">"0.0              25.0                  50.0                  75.0              100.0"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"927"</v>
+              <v n="TextDefault">"0.0              25.0                  50.0                75.0              100.0"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"447"</v>
+              <v n="TextDefault">"0.0              25.0                  50.0                75.0            100"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"542"</v>
+              <v n="TextDefault">"0.0              25.0                  50.0                75.0            100.0"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"109"</v>
+              <v n="TextDefault">"0.0         25.0                      50.0                  75.0              100.0"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"587"</v>
               <v n="TextDefault">"Apply Calibration"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"192"</v>
+              <v n="TextDefault">"Calibrant Value"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -73,6 +113,11 @@
             <o>
               <v n="TextID">"426"</v>
               <v n="TextDefault">"Sensor "</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"134"</v>
+              <v n="TextDefault">"Sensor Value"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
