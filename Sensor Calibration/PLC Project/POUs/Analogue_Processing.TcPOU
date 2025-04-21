@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="Analogue_Processing" Id="{d9437fd0-b491-47b7-8255-0da34a1bfe69}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Analogue_Processing
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Temperature_Transducer_A1(RawValue	:=	Temperature_Transducer_A1_Raw_Value);]]></ST>
+    </Implementation>
+    <LineIds Name="Analogue_Processing">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

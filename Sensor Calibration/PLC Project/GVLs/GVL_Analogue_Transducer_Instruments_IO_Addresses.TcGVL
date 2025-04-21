@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <GVL Name="GVL_Analogue_Transducer_Instruments_IO_Addresses" Id="{72093fe6-7526-451b-adf3-60172f0a6788}">
+    <Declaration><![CDATA[//	Dynamic Memory Addressing Used
+//	N/B: Remember To Re-enable EtherCAT Device Under I/O If Using A Physical IPC & Intruments
+
+VAR_GLOBAL
+	Temperature_Transducer_A1_Raw_Value		AT %I*	:	INT;	//	Mapped To Term 2(EL3202-0020) Channel 1 Value
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

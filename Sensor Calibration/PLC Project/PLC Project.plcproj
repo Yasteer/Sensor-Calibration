@@ -18,7 +18,18 @@
     <LibraryReferences>{1b93971b-259d-492e-81ed-7c33d79fda9b}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GVLs\GVL_Analogue_Transducer_Instruments.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\GVL_Analogue_Transducer_Instruments_IO_Addresses.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="PlcTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Analogue_Processing.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Function Blocks\Temperature_Transducer.TcPOU">
